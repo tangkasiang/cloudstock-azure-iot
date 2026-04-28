@@ -3,3 +3,8 @@
 *.tfstate.*
 cloudstock_key
 cloudstock_key.pub
+
+# Python API Secrets
+CloudStockAPI/.venv/
+CloudStockAPI/__pycache__/
+CloudStockAPI/local.settings.json
