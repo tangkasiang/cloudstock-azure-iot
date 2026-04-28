@@ -1,0 +1,5 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+cloudstock_key
+cloudstock_key.pub
