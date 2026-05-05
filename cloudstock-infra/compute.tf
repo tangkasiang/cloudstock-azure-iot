@@ -106,10 +106,12 @@ resource "azurerm_linux_function_app" "func" {
     type = "SystemAssigned"
   }
 
-  # Environment Variables & Key Vault Reference
+  # Environment Variables & Key Vault Reference & App Insights
   app_settings = {
-    "TABLE_STORAGE_CONNECTION" = "@Microsoft.KeyVault(SecretUri=${azurerm_key_vault_secret.db_conn.id})"
-    "WEBSITE_RUN_FROM_PACKAGE" = "1"
+    "TABLE_STORAGE_CONNECTION"              = "@Microsoft.KeyVault(SecretUri=${azurerm_key_vault_secret.db_conn.id})"
+    "WEBSITE_RUN_FROM_PACKAGE"              = "1"
+    "APPINSIGHTS_INSTRUMENTATIONKEY"        = azurerm_application_insights.cloudstock_appinsights.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING" = azurerm_application_insights.cloudstock_appinsights.connection_string
   }
 }
 
